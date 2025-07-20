@@ -1,47 +1,62 @@
+:root{
+    --primary: #ff6b35; /* Primary color for the site */
+    --secondary: #292929; /* Secondary color for backgrounds */
+}
 body {
-    background-color: rgb(50, 50, 50);
+    background-color: var(--secondary)
+}
+
+h1{
+    font-family: "Rock Salt", cursive;
+    font-size: 90px;
+    line-height: 160px;
+    font-weight: 600;
+    color: white;
 }
 a{
     cursor: pointer;
+    color: white;
 }
 .head-main {
+    position: fixed;
     width: 100%;
     height: 70px;
     display: flex;
-    background-color: rgb(41, 41, 41);
+    z-index: 1000;
+    background-color: var(--secondary);
     /*flex-direction: row; these commands are defaulted */
     /*flex-wrap: wrap;*/
     justify-content: space-between;
     align-items: center;
 }
 .head-logo {
-    margin-left: 40px;
+    margin-left: 60px;
     width: fit-content;
     height: 100%;
     width: 120px;
     color: white;
     font-family: "Rock Salt", cursive;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 26px;
     line-height: 70px;
     transition: color 0.3s ease;
 }
 .head-logo:hover {
-    color: #ff6b35;
+    color: var(--primary);
 }
 
 .head-nav {
     height: 100%;
     width: fit-content;
     display: flex;
-    margin-right: 30px;
+    margin-right: 60px;
 }
 
 .head-nav ul {
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 40px; 
+    gap: 60px; 
 }
 
 .head-nav ul li {
@@ -49,15 +64,54 @@ a{
 }
 
 .head-nav ul li a {
+    text-transform: uppercase;
     color: white;
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 70px;
+    font-size: 30px;
+    font-family: "VT323", monospace;
+    font-weight: 100;
+    line-height: 25px;
     white-space: nowrap; /* Prevents text wrapping */
-    transition: color 0.3s ease;
+    transition: color 0.8s ease;
     display: block; /* Ensures the link is block-level for better click area */ 
+    position: relative;
 }
 
 .head-nav ul li a:hover {
-    color: #ff6b35;
+    font-weight: 600;
+}
+
+
+/* The underline animation using ::after pseudo-element */
+.head-nav ul li a::after {
+    content: ''; /* Required for pseudo-element to show */
+    position: absolute;
+    bottom: -5px; /* Position below the text */
+    left: 0;
+    width: 0; /* Start with no width */
+    height: 2px; /* Thickness of the underline */
+    background: var(--primary); /* Color of the underline */
+    transition: width 0.3s ease; /* Animate the width change */
+}
+
+.head-nav ul li a:hover::after {
+    width: 100%; /* Expand to full width on hover */
+}
+
+.footer-main {
+    background-color: var(--secondary);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 26px;
+}
+
+.footer-main a{
+    font-family: "VT323", monospace;
+    font-size: 25px;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-main a:hover {
+    color: var(--primary);
 }
